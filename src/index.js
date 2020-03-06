@@ -24,14 +24,13 @@ const numbers = {
     
   module.exports = function toReadable(num) {
     const str = num.toString();
-    if (num === 0) {return 'zero';
-    }    else if (num > 10 && num < 20) {
+    if (num > 10 && num < 20) {
         return numbers.teens[num];
     }  else if (str.slice(1) < 20 && str.slice(1) > 10) {
         return numbers[str.slice(0,1)][2] + ' ' + numbers.teens[str.slice(1)];
-    } else if (num % 10 === 0 && num < 100) {
+    } else if (num % 10 === 0 && num < 100 && num > 0) {
         return numbers[str.slice(0, 1)][1];
-    } else if (num % 100 === 0) {
+    } else if (num % 100 === 0 && num > 0) {
         return numbers[str.slice(0,1)][2];
     } else if (num % 10 === 0 && num > 100) {
         return numbers[str.slice(0,1)][2] + ' ' + numbers[str.slice(1,2)][1];
